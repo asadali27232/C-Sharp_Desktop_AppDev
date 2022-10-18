@@ -1,0 +1,14 @@
+C:\Users\asada\OneDrive\CIIT\Database Systems I\C-Sharp_Desktop_AppDev\SMS\bin\Debug\SMS.exe.config
+C:\Users\asada\OneDrive\CIIT\Database Systems I\C-Sharp_Desktop_AppDev\SMS\bin\Debug\SMS.exe
+C:\Users\asada\OneDrive\CIIT\Database Systems I\C-Sharp_Desktop_AppDev\SMS\bin\Debug\SMS.pdb
+C:\Users\asada\OneDrive\CIIT\Database Systems I\C-Sharp_Desktop_AppDev\SMS\bin\Debug\Guna.UI2.dll
+C:\Users\asada\OneDrive\CIIT\Database Systems I\C-Sharp_Desktop_AppDev\SMS\obj\Debug\SMS.csproj.AssemblyReference.cache
+C:\Users\asada\OneDrive\CIIT\Database Systems I\C-Sharp_Desktop_AppDev\SMS\obj\Debug\SMS.csproj.SuggestedBindingRedirects.cache
+C:\Users\asada\OneDrive\CIIT\Database Systems I\C-Sharp_Desktop_AppDev\SMS\obj\Debug\SMS.Properties.Resources.resources
+C:\Users\asada\OneDrive\CIIT\Database Systems I\C-Sharp_Desktop_AppDev\SMS\obj\Debug\SMS.csproj.GenerateResource.cache
+C:\Users\asada\OneDrive\CIIT\Database Systems I\C-Sharp_Desktop_AppDev\SMS\obj\Debug\SMS.csproj.CoreCompileInputs.cache
+C:\Users\asada\OneDrive\CIIT\Database Systems I\C-Sharp_Desktop_AppDev\SMS\obj\Debug\SMS.csproj.CopyComplete
+C:\Users\asada\OneDrive\CIIT\Database Systems I\C-Sharp_Desktop_AppDev\SMS\obj\Debug\SMS.exe
+C:\Users\asada\OneDrive\CIIT\Database Systems I\C-Sharp_Desktop_AppDev\SMS\obj\Debug\SMS.pdb
+C:\Users\asada\OneDrive\CIIT\Database Systems I\C-Sharp_Desktop_AppDev\SMS\obj\Debug\SMS.SMS.resources
+C:\Users\asada\OneDrive\CIIT\Database Systems I\C-Sharp_Desktop_AppDev\SMS\bin\Debug\Guna.Charts.WinForms.dll
