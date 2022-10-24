@@ -16,5 +16,15 @@ namespace SMS
         {
             InitializeComponent();
         }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel9_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
