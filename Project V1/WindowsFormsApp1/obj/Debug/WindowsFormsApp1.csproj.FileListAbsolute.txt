@@ -48,3 +48,4 @@ C:\Users\asada\OneDrive\CIIT\Database Systems I\C-Sharp_Desktop_AppDev\Project V
 C:\Users\asada\OneDrive\CIIT\Database Systems I\C-Sharp_Desktop_AppDev\Project V1\WindowsFormsApp1\bin\Debug\Bunifu.Dataviz.WinForms.xml
 C:\Users\asada\OneDrive\CIIT\Database Systems I\C-Sharp_Desktop_AppDev\Project V1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.AddStudent.resources
 C:\Users\asada\OneDrive\CIIT\Database Systems I\C-Sharp_Desktop_AppDev\Project V1\WindowsFormsApp1\bin\Debug\Bunifu.Charts.WinForms.xml
+C:\Users\asada\OneDrive\CIIT\Database Systems I\C-Sharp_Desktop_AppDev\Project V1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ErrorBox.resources

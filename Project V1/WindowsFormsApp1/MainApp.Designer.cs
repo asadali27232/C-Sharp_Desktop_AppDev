@@ -97,6 +97,7 @@
             this.LoginPanel = new System.Windows.Forms.Panel();
             this.LoginSidePicture = new System.Windows.Forms.PictureBox();
             this.LoginSidePanel = new System.Windows.Forms.Panel();
+            this.lblLoginWelcome = new Bunifu.UI.WinForms.BunifuLabel();
             this.btnlogin = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btnLogoutRight = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.loginPicture = new System.Windows.Forms.PictureBox();
@@ -117,7 +118,6 @@
             this.btnStudents = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btnDashboard = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btnHome = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.lblLoginWelcome = new Bunifu.UI.WinForms.BunifuLabel();
             this.titleBar.SuspendLayout();
             this.closeMin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.close)).BeginInit();
@@ -615,7 +615,7 @@
             this.panelDashboardBanner.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDashboardBanner.Location = new System.Drawing.Point(3, 3);
             this.panelDashboardBanner.Name = "panelDashboardBanner";
-            this.panelDashboardBanner.Size = new System.Drawing.Size(1057, 100);
+            this.panelDashboardBanner.Size = new System.Drawing.Size(1057, 140);
             this.panelDashboardBanner.TabIndex = 10;
             // 
             // DashboardCanvas
@@ -634,11 +634,11 @@
             this.DashboardCanvas.LegendPosition = Bunifu.Charts.WinForms.BunifuChartCanvas.PositionOptions.top;
             this.DashboardCanvas.LegendRevese = false;
             this.DashboardCanvas.LegendRTL = false;
-            this.DashboardCanvas.Location = new System.Drawing.Point(3, 109);
+            this.DashboardCanvas.Location = new System.Drawing.Point(3, 140);
             this.DashboardCanvas.Name = "DashboardCanvas";
             this.DashboardCanvas.ShowXAxis = true;
             this.DashboardCanvas.ShowYAxis = true;
-            this.DashboardCanvas.Size = new System.Drawing.Size(1057, 525);
+            this.DashboardCanvas.Size = new System.Drawing.Size(1057, 494);
             this.DashboardCanvas.TabIndex = 9;
             this.DashboardCanvas.Title = "";
             this.DashboardCanvas.TitleLineHeight = 1.2D;
@@ -994,6 +994,24 @@
             this.LoginSidePanel.Name = "LoginSidePanel";
             this.LoginSidePanel.Size = new System.Drawing.Size(300, 396);
             this.LoginSidePanel.TabIndex = 2;
+            // 
+            // lblLoginWelcome
+            // 
+            this.lblLoginWelcome.AllowParentOverrides = false;
+            this.lblLoginWelcome.AutoEllipsis = false;
+            this.lblLoginWelcome.AutoSize = false;
+            this.lblLoginWelcome.CursorType = null;
+            this.lblLoginWelcome.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold);
+            this.lblLoginWelcome.ForeColor = System.Drawing.Color.White;
+            this.lblLoginWelcome.Location = new System.Drawing.Point(29, 209);
+            this.lblLoginWelcome.Name = "lblLoginWelcome";
+            this.lblLoginWelcome.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblLoginWelcome.Size = new System.Drawing.Size(248, 61);
+            this.lblLoginWelcome.TabIndex = 28;
+            this.lblLoginWelcome.Text = "Welcome";
+            this.lblLoginWelcome.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblLoginWelcome.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.lblLoginWelcome.Visible = false;
             // 
             // btnlogin
             // 
@@ -1360,6 +1378,7 @@
             this.tbPassword.TextPlaceholder = "Password";
             this.tbPassword.UseSystemPasswordChar = false;
             this.tbPassword.WordWrap = true;
+            this.tbPassword.TextChanged += new System.EventHandler(this.tbPassword_KeyDown);
             // 
             // sidePanel
             // 
@@ -1450,7 +1469,7 @@
             this.lblCurrentTab.OnIdleState.BorderThickness = 1;
             this.lblCurrentTab.OnIdleState.FillColor = System.Drawing.Color.White;
             this.lblCurrentTab.OnIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(38)))));
-            this.lblCurrentTab.OnIdleState.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("bunifuButton1.OnIdleState.IconLeftImage")));
+            this.lblCurrentTab.OnIdleState.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("lblCurrentTab.OnIdleState.IconLeftImage")));
             this.lblCurrentTab.OnIdleState.IconRightImage = null;
             this.lblCurrentTab.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(38)))));
             this.lblCurrentTab.OnPressedState.BorderRadius = 10;
@@ -1523,6 +1542,7 @@
             this.todayDateSideMenu.Size = new System.Drawing.Size(196, 32);
             this.todayDateSideMenu.TabIndex = 1;
             this.todayDateSideMenu.Value = new System.DateTime(2022, 12, 20, 11, 35, 0, 0);
+            this.todayDateSideMenu.ValueChanged += new System.EventHandler(this.todayDateSideMenu_ValueChanged);
             // 
             // navigationSideMenu
             // 
@@ -1600,7 +1620,7 @@
             this.btnLoginTab.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.btnLoginTab.OnDisabledState.IconLeftImage = null;
             this.btnLoginTab.OnDisabledState.IconRightImage = null;
-            this.btnLoginTab.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(158)))), ((int)(((byte)(19)))));
+            this.btnLoginTab.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.btnLoginTab.onHoverState.BorderRadius = 10;
             this.btnLoginTab.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnLoginTab.onHoverState.BorderThickness = 1;
@@ -1608,7 +1628,7 @@
             this.btnLoginTab.onHoverState.ForeColor = System.Drawing.Color.White;
             this.btnLoginTab.onHoverState.IconLeftImage = null;
             this.btnLoginTab.onHoverState.IconRightImage = null;
-            this.btnLoginTab.OnIdleState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(158)))), ((int)(((byte)(19)))));
+            this.btnLoginTab.OnIdleState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.btnLoginTab.OnIdleState.BorderRadius = 10;
             this.btnLoginTab.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnLoginTab.OnIdleState.BorderThickness = 1;
@@ -1616,7 +1636,7 @@
             this.btnLoginTab.OnIdleState.ForeColor = System.Drawing.Color.White;
             this.btnLoginTab.OnIdleState.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("btnLoginTab.OnIdleState.IconLeftImage")));
             this.btnLoginTab.OnIdleState.IconRightImage = null;
-            this.btnLoginTab.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(158)))), ((int)(((byte)(19)))));
+            this.btnLoginTab.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.btnLoginTab.OnPressedState.BorderRadius = 10;
             this.btnLoginTab.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnLoginTab.OnPressedState.BorderThickness = 1;
@@ -1694,7 +1714,7 @@
             this.btnLogout.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.btnLogout.OnDisabledState.IconLeftImage = null;
             this.btnLogout.OnDisabledState.IconRightImage = null;
-            this.btnLogout.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(38)))));
+            this.btnLogout.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.btnLogout.onHoverState.BorderRadius = 10;
             this.btnLogout.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnLogout.onHoverState.BorderThickness = 1;
@@ -1702,7 +1722,7 @@
             this.btnLogout.onHoverState.ForeColor = System.Drawing.Color.White;
             this.btnLogout.onHoverState.IconLeftImage = null;
             this.btnLogout.onHoverState.IconRightImage = null;
-            this.btnLogout.OnIdleState.BorderColor = System.Drawing.Color.Transparent;
+            this.btnLogout.OnIdleState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.btnLogout.OnIdleState.BorderRadius = 10;
             this.btnLogout.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnLogout.OnIdleState.BorderThickness = 1;
@@ -1710,7 +1730,7 @@
             this.btnLogout.OnIdleState.ForeColor = System.Drawing.Color.White;
             this.btnLogout.OnIdleState.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("btnLogout.OnIdleState.IconLeftImage")));
             this.btnLogout.OnIdleState.IconRightImage = null;
-            this.btnLogout.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(38)))));
+            this.btnLogout.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.btnLogout.OnPressedState.BorderRadius = 10;
             this.btnLogout.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnLogout.OnPressedState.BorderThickness = 1;
@@ -1789,7 +1809,7 @@
             this.btnLeftExit.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.btnLeftExit.OnDisabledState.IconLeftImage = null;
             this.btnLeftExit.OnDisabledState.IconRightImage = null;
-            this.btnLeftExit.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(76)))), ((int)(((byte)(33)))));
+            this.btnLeftExit.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.btnLeftExit.onHoverState.BorderRadius = 10;
             this.btnLeftExit.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnLeftExit.onHoverState.BorderThickness = 1;
@@ -1797,7 +1817,7 @@
             this.btnLeftExit.onHoverState.ForeColor = System.Drawing.Color.White;
             this.btnLeftExit.onHoverState.IconLeftImage = null;
             this.btnLeftExit.onHoverState.IconRightImage = null;
-            this.btnLeftExit.OnIdleState.BorderColor = System.Drawing.Color.Transparent;
+            this.btnLeftExit.OnIdleState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.btnLeftExit.OnIdleState.BorderRadius = 10;
             this.btnLeftExit.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnLeftExit.OnIdleState.BorderThickness = 1;
@@ -1805,7 +1825,7 @@
             this.btnLeftExit.OnIdleState.ForeColor = System.Drawing.Color.White;
             this.btnLeftExit.OnIdleState.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("btnLeftExit.OnIdleState.IconLeftImage")));
             this.btnLeftExit.OnIdleState.IconRightImage = null;
-            this.btnLeftExit.OnPressedState.BorderColor = System.Drawing.Color.Transparent;
+            this.btnLeftExit.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.btnLeftExit.OnPressedState.BorderRadius = 10;
             this.btnLeftExit.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnLeftExit.OnPressedState.BorderThickness = 1;
@@ -2293,24 +2313,6 @@
             this.btnHome.TextPadding = new System.Windows.Forms.Padding(55, 0, 0, 0);
             this.btnHome.UseDefaultRadiusAndThickness = true;
             this.btnHome.Click += new System.EventHandler(this.bunifuButton1_Click);
-            // 
-            // lblLoginWelcome
-            // 
-            this.lblLoginWelcome.AllowParentOverrides = false;
-            this.lblLoginWelcome.AutoEllipsis = false;
-            this.lblLoginWelcome.AutoSize = false;
-            this.lblLoginWelcome.CursorType = null;
-            this.lblLoginWelcome.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold);
-            this.lblLoginWelcome.ForeColor = System.Drawing.Color.White;
-            this.lblLoginWelcome.Location = new System.Drawing.Point(29, 209);
-            this.lblLoginWelcome.Name = "lblLoginWelcome";
-            this.lblLoginWelcome.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblLoginWelcome.Size = new System.Drawing.Size(248, 61);
-            this.lblLoginWelcome.TabIndex = 28;
-            this.lblLoginWelcome.Text = "Welcome";
-            this.lblLoginWelcome.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblLoginWelcome.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.lblLoginWelcome.Visible = false;
             // 
             // SAM
             // 

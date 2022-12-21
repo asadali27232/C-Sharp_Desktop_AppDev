@@ -16,6 +16,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             pages.SetPage("Login");
+            todayDateSideMenu.Value = DateTime.Now;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -46,26 +47,31 @@ namespace WindowsFormsApp1
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
             pages.SetPage("Home");
+            lblCurrentTab.Text = "Home";
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             pages.SetPage("Dashboard");
+            lblCurrentTab.Text = "Dashboard";
         }
 
         private void btnStudents_Click(object sender, EventArgs e)
         {
             pages.SetPage("Students");
+            lblCurrentTab.Text = "Students";
         }
 
         private void btnAttendance_Click(object sender, EventArgs e)
         {
             pages.SetPage("Attendance");
+            lblCurrentTab.Text = "Attendance";
         }
 
         private void btnClasses_Click(object sender, EventArgs e)
         {
             pages.SetPage("Classes");
+            lblCurrentTab.Text = "Classes";
         }
 
         private void bunifuButton6_Click(object sender, EventArgs e)
@@ -106,51 +112,61 @@ namespace WindowsFormsApp1
         private void bunifuIconButton1_Click(object sender, EventArgs e)
         {
             pages.SetPage("Home");
+            lblCurrentTab.Text = "Home";
         }
 
         private void bunifuLabel2_Click(object sender, EventArgs e)
         {
             pages.SetPage("Home");
+            lblCurrentTab.Text = "Home";
         }
 
         private void bunifuIconButton3_Click(object sender, EventArgs e)
         {
             pages.SetPage("Dashboard");
+            lblCurrentTab.Text = "Dashboard";
         }
 
         private void bunifuLabel11_Click(object sender, EventArgs e)
         {
             pages.SetPage("Dashboard");
+            lblCurrentTab.Text = "Dashbaord";
         }
 
         private void bunifuIconButton2_Click_1(object sender, EventArgs e)
         {
             pages.SetPage("Students");
+            lblCurrentTab.Text = "Students";
         }
 
         private void bunifuLabel1_Click_2(object sender, EventArgs e)
         {
             pages.SetPage("Students");
+            lblCurrentTab.Text = "Students";
         }
 
         private void bunifuIconButton4_Click(object sender, EventArgs e)
         {
             pages.SetPage("Attendance");
+            lblCurrentTab.Text = "Attendance";
         }
 
         private void bunifuLabel12_Click(object sender, EventArgs e)
         {
             pages.SetPage("Attendance");
+            lblCurrentTab.Text = "Attendance";
         }
 
         private void bunifuIconButton5_Click(object sender, EventArgs e)
         {
             pages.SetPage("Classes");
+            lblCurrentTab.Text = "Classes";
         }
 
         private void bunifuLabel13_Click(object sender, EventArgs e)
         {
-            pages.SetPage("Attendance");
+            pages.SetPage("Classes");
+            lblCurrentTab.Text = "Classes";
         }
 
         private void btnAddStudent_Click(object sender, EventArgs e)
@@ -176,8 +192,8 @@ namespace WindowsFormsApp1
 
         private void btnlogin_Click(object sender, EventArgs e)
         {
-            string userID = "asadali27232@gmail.com";
-            string pass = "asadali007";
+            string userID = "asad";
+            string pass = "asad";
 
             if (tbUserID.Text == userID && tbPassword.Text == pass)
             {
@@ -200,9 +216,11 @@ namespace WindowsFormsApp1
                 tbPassword.Text = "";
                 tbUserID.Visible = false;
                 tbPassword.Visible = false;
-            } else
+            }
+            else
             {
-                MessageBox.Show("Wrong Credentials! Please try again");
+                ErrorBox err = new ErrorBox("Wrong credentials! Please try again.");
+                err.Show();
             }
         }
 
@@ -251,6 +269,21 @@ namespace WindowsFormsApp1
         private void btnLeftExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void lblWrongPass_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbPassword_KeyDown(object sender, EventArgs e)
+        {
+        
+        }
+
+        private void todayDateSideMenu_ValueChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
