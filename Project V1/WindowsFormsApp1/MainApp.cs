@@ -15,7 +15,7 @@ namespace WindowsFormsApp1
         public SAM()
         {
             InitializeComponent();
-            pages.SetPage("Login");
+            pages.SetPage("Home");
             todayDateSideMenu.Value = DateTime.Now;
         }
 

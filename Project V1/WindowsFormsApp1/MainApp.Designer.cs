@@ -1424,7 +1424,6 @@
             this.lblCurrentTab.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.lblCurrentTab.DisabledFillColor = System.Drawing.Color.Empty;
             this.lblCurrentTab.DisabledForecolor = System.Drawing.Color.Empty;
-            this.lblCurrentTab.Enabled = false;
             this.lblCurrentTab.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
             this.lblCurrentTab.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblCurrentTab.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(38)))));
@@ -1446,7 +1445,7 @@
             this.lblCurrentTab.IdleIconLeftImage = ((System.Drawing.Image)(resources.GetObject("lblCurrentTab.IdleIconLeftImage")));
             this.lblCurrentTab.IdleIconRightImage = null;
             this.lblCurrentTab.IndicateFocus = false;
-            this.lblCurrentTab.Location = new System.Drawing.Point(14, 181);
+            this.lblCurrentTab.Location = new System.Drawing.Point(14, 178);
             this.lblCurrentTab.Margin = new System.Windows.Forms.Padding(5);
             this.lblCurrentTab.Name = "lblCurrentTab";
             this.lblCurrentTab.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(38)))));
@@ -1481,7 +1480,7 @@
             this.lblCurrentTab.OnPressedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(38)))));
             this.lblCurrentTab.OnPressedState.IconLeftImage = null;
             this.lblCurrentTab.OnPressedState.IconRightImage = null;
-            this.lblCurrentTab.Size = new System.Drawing.Size(223, 40);
+            this.lblCurrentTab.Size = new System.Drawing.Size(223, 48);
             this.lblCurrentTab.TabIndex = 300;
             this.lblCurrentTab.TabStop = false;
             this.lblCurrentTab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
