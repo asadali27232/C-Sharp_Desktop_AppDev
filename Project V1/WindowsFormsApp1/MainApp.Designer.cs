@@ -217,6 +217,7 @@
             this.titleTitlebar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.titleTitlebar.Size = new System.Drawing.Size(208, 33);
             this.titleTitlebar.TabIndex = 5;
+            this.titleTitlebar.TabStop = false;
             this.titleTitlebar.Text = "Student Attendance Management";
             this.titleTitlebar.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.titleTitlebar.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
@@ -1098,13 +1099,13 @@
             this.btnlogin.OnPressedState.IconLeftImage = null;
             this.btnlogin.OnPressedState.IconRightImage = null;
             this.btnlogin.Size = new System.Drawing.Size(248, 40);
-            this.btnlogin.TabIndex = 8;
+            this.btnlogin.TabIndex = 3;
             this.btnlogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnlogin.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnlogin.TextMarginLeft = 0;
             this.btnlogin.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnlogin.UseDefaultRadiusAndThickness = true;
-            this.btnlogin.Click += new System.EventHandler(this.btnlogin_Click_1);
+            this.btnlogin.Click += new System.EventHandler(this.btnlogin_Click);
             // 
             // btnLogoutRight
             // 
@@ -1120,7 +1121,7 @@
             this.btnLogoutRight.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
             this.btnLogoutRight.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogoutRight.BackgroundImage")));
             this.btnLogoutRight.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnLogoutRight.ButtonText = "Logout";
+            this.btnLogoutRight.ButtonText = "HOME";
             this.btnLogoutRight.ButtonTextMarginLeft = 0;
             this.btnLogoutRight.ColorContrastOnClick = 45;
             this.btnLogoutRight.ColorContrastOnHover = 45;
@@ -1294,7 +1295,7 @@
             this.tbUserID.ShortcutsEnabled = true;
             this.tbUserID.Size = new System.Drawing.Size(248, 39);
             this.tbUserID.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.tbUserID.TabIndex = 9;
+            this.tbUserID.TabIndex = 1;
             this.tbUserID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbUserID.TextMarginBottom = 0;
             this.tbUserID.TextMarginLeft = 10;
@@ -1370,7 +1371,7 @@
             this.tbPassword.ShortcutsEnabled = true;
             this.tbPassword.Size = new System.Drawing.Size(248, 39);
             this.tbPassword.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.tbPassword.TabIndex = 0;
+            this.tbPassword.TabIndex = 1;
             this.tbPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbPassword.TextMarginBottom = 0;
             this.tbPassword.TextMarginLeft = 10;
@@ -1423,6 +1424,7 @@
             this.lblCurrentTab.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.lblCurrentTab.DisabledFillColor = System.Drawing.Color.Empty;
             this.lblCurrentTab.DisabledForecolor = System.Drawing.Color.Empty;
+            this.lblCurrentTab.Enabled = false;
             this.lblCurrentTab.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
             this.lblCurrentTab.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
             this.lblCurrentTab.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(38)))));
@@ -1447,12 +1449,12 @@
             this.lblCurrentTab.Location = new System.Drawing.Point(14, 181);
             this.lblCurrentTab.Margin = new System.Windows.Forms.Padding(5);
             this.lblCurrentTab.Name = "lblCurrentTab";
-            this.lblCurrentTab.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.lblCurrentTab.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(38)))));
             this.lblCurrentTab.OnDisabledState.BorderRadius = 10;
             this.lblCurrentTab.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.lblCurrentTab.OnDisabledState.BorderThickness = 1;
-            this.lblCurrentTab.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.lblCurrentTab.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.lblCurrentTab.OnDisabledState.FillColor = System.Drawing.Color.White;
+            this.lblCurrentTab.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(38)))));
             this.lblCurrentTab.OnDisabledState.IconLeftImage = null;
             this.lblCurrentTab.OnDisabledState.IconRightImage = null;
             this.lblCurrentTab.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(38)))));
@@ -1480,7 +1482,8 @@
             this.lblCurrentTab.OnPressedState.IconLeftImage = null;
             this.lblCurrentTab.OnPressedState.IconRightImage = null;
             this.lblCurrentTab.Size = new System.Drawing.Size(223, 40);
-            this.lblCurrentTab.TabIndex = 3;
+            this.lblCurrentTab.TabIndex = 300;
+            this.lblCurrentTab.TabStop = false;
             this.lblCurrentTab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblCurrentTab.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.lblCurrentTab.TextMarginLeft = 0;
@@ -1500,7 +1503,8 @@
             this.titleSideMenu.Name = "titleSideMenu";
             this.titleSideMenu.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.titleSideMenu.Size = new System.Drawing.Size(129, 34);
-            this.titleSideMenu.TabIndex = 1;
+            this.titleSideMenu.TabIndex = 100;
+            this.titleSideMenu.TabStop = false;
             this.titleSideMenu.Text = "Student Attendance Management";
             this.titleSideMenu.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
             this.titleSideMenu.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
@@ -1540,7 +1544,8 @@
             this.todayDateSideMenu.MinimumSize = new System.Drawing.Size(4, 32);
             this.todayDateSideMenu.Name = "todayDateSideMenu";
             this.todayDateSideMenu.Size = new System.Drawing.Size(196, 32);
-            this.todayDateSideMenu.TabIndex = 1;
+            this.todayDateSideMenu.TabIndex = 100;
+            this.todayDateSideMenu.TabStop = false;
             this.todayDateSideMenu.Value = new System.DateTime(2022, 12, 20, 11, 35, 0, 0);
             this.todayDateSideMenu.ValueChanged += new System.EventHandler(this.todayDateSideMenu_ValueChanged);
             // 
@@ -1651,7 +1656,7 @@
             this.btnLoginTab.TextMarginLeft = 0;
             this.btnLoginTab.TextPadding = new System.Windows.Forms.Padding(55, 0, 0, 0);
             this.btnLoginTab.UseDefaultRadiusAndThickness = true;
-            this.btnLoginTab.Click += new System.EventHandler(this.bunifuButton2_Click);
+            this.btnLoginTab.Click += new System.EventHandler(this.btnlogin_Click);
             // 
             // btnLogout
             // 

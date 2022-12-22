@@ -21,5 +21,16 @@ namespace WindowsFormsApp1
         {
             this.Close();
         }
+
+
+
+        private void studentImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                studentImage.Image = new Bitmap(openFileDialog.FileName);
+            }
+        }
     }
 }

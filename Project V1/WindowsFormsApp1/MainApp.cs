@@ -185,10 +185,6 @@ namespace WindowsFormsApp1
             pages.SetPage("Dashboard");
         }
 
-        private void bunifuButton2_Click(object sender, EventArgs e)
-        {
-            btnlogin_Click(sender, e);
-        }
 
         private void btnlogin_Click(object sender, EventArgs e)
         {
@@ -248,12 +244,8 @@ namespace WindowsFormsApp1
 
         private void btnLogoutRight_Click(object sender, EventArgs e)
         {
-            btnLogout_Click(sender, e);
-        }
-
-        private void btnlogin_Click_1(object sender, EventArgs e)
-        {
-            btnlogin_Click(sender, e);
+            pages.SetPage("Home");
+            lblCurrentTab.Text = "Home";
         }
 
         private void btnLogout_Click_1(object sender, EventArgs e)
