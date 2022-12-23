@@ -41,7 +41,7 @@ namespace WindowsFormsApp1
             dateOfBirth.Text = "";
             contactNumber.Text = "";
             email.Text = "";
-            streetAddres.Text = "";
+            streetAddress.Text = "";
             town.Text = "";
             city.Text = "";
             fatherName.Text = "";
@@ -52,8 +52,8 @@ namespace WindowsFormsApp1
             motherCNIC.Text = "";
             motherContact.Text = "";
             motherProfession.Text = "";
-            guardianName.Text = "";
-            guardianContact.Text = "";
+            income.Text = "";
+            siblings.Text = "";
             
         }
 
@@ -89,31 +89,197 @@ namespace WindowsFormsApp1
 
             if (formState)
             {
+                MessageBox.Show("Query Will Run");
 
+            }
+            else
+            {
+                MessageBox.Show("Query Will NOT Run");
             }
         }
 
         private bool formValidate()
         {
-            bool formState = false;
+            bool formState = true;
             // Checking if form fields are in valid state
             if(HasNumber(firstName.Text)) {
-                firstName.BorderColorIdle = Color.Red;
+                lblFirstName.ForeColor = Color.Red;
                 formState = false;
             }
             else
             {
-                formState = true;
+                lblFirstName.ForeColor = Color.White;
+            }
+            
+            if (HasNumber(lastName.Text))
+            {
+                lblLastName.ForeColor = Color.Red;
+                formState = false;
+            }
+            else
+            {
+                lblLastName.ForeColor = Color.White;
+            }
+
+            if (HasLetter(studentCNIC.Text))
+            {
+                lblStudentCNIC.ForeColor = Color.Red;
+                formState = false;
+            }
+            else
+            {
+                lblStudentCNIC.ForeColor = Color.White;
             }
 
             if (HasLetter(contactNumber.Text))
             {
-                contactNumber.BorderColorIdle = Color.Red;
+                lblContactNumber.ForeColor = Color.Red;
                 formState = false;
             }
             else
             {
-                formState = true;
+                lblContactNumber.ForeColor = Color.White;
+            }
+
+            if (HasNumber(city.Text))
+            {
+                lblCity.ForeColor = Color.Red;
+                formState = false;
+            }
+            else
+            {   
+                lblCity.ForeColor = Color.White;
+            }
+
+
+            if (HasNumber(fatherName.Text))
+            {
+                lblFatherName.ForeColor = Color.Red;
+                formState = false;
+            }
+            else
+            {
+                lblFatherName.ForeColor = Color.White;
+            }
+
+            if (HasNumber(motherName.Text))
+            {
+                lblMotherName.ForeColor = Color.Red;
+                formState = false;
+            }
+            else
+            {
+                lblMotherName.ForeColor = Color.White;
+            }
+
+            if (HasLetter(income.Text))
+            {
+                lblincome.ForeColor = Color.Red;
+                formState = false;
+            }
+            else
+            {
+                lblincome.ForeColor = Color.White;
+            }
+
+            if (HasNumber(fatherProfession.Text))
+            {
+                lblFatherProfession.ForeColor = Color.Red;
+                formState = false;
+            }
+            else
+            {
+                lblFatherProfession.ForeColor = Color.White;
+            }
+
+            if (HasNumber(motherProfession.Text))
+            {
+                lblMotherProfession.ForeColor = Color.Red;
+                formState = false;
+            }
+            else
+            {
+                lblMotherProfession.ForeColor = Color.White;
+            }
+
+            if (HasLetter(fatherCNIC.Text))
+            {
+                lblFatherCNIC.ForeColor = Color.Red;
+                formState = false;
+            }
+            else
+            {
+                lblFatherCNIC.ForeColor = Color.White;
+            }
+
+            if (HasLetter(motherCNIC.Text))
+            {
+                lblMotherCNIC.ForeColor = Color.Red;
+                formState = false;
+            }
+            else
+            {
+                lblMotherCNIC.ForeColor = Color.White;
+            }
+
+            if (HasLetter(fatherContact.Text))
+            {
+                lblFatherContact.ForeColor = Color.Red;
+                formState = false;
+            }
+            else
+            {
+                lblFatherContact.ForeColor = Color.White;
+            }
+
+            if (HasLetter(motherContact.Text))
+            {
+                lblMotherContact.ForeColor = Color.Red;
+                formState = false;
+            }
+            else
+            {
+                lblMotherContact.ForeColor = Color.White;
+            }
+
+            if (HasLetter(siblings.Text))
+            {
+                lblSiblings.ForeColor = Color.Red;
+                formState = false;
+            }
+            else
+            {
+                lblSiblings.ForeColor = Color.White;
+            }
+
+            if (IsEmpty(streetAddress.Text))
+            {
+                lblAddress.ForeColor = Color.Red;
+                formState = false;
+            }
+            else
+            {
+                lblAddress.ForeColor = Color.White;
+            }
+
+            if (IsEmpty(town.Text))
+            {
+                lblTown.ForeColor = Color.Red;
+                formState = false;
+            }
+            else
+            {
+                lblTown.ForeColor = Color.White;
+            }
+
+            if (IsNotEmail(email.Text))
+            {
+                lblEmail.ForeColor = Color.Red;
+                formState = false;
+            }
+            else
+            {
+                lblEmail.ForeColor = Color.White;
             }
 
             return formState;
@@ -126,6 +292,7 @@ namespace WindowsFormsApp1
             else
                 return yourString.Any(ch => !char.IsLetter(ch));
         }
+
         private bool HasLetter(string yourString)
         {
             if (yourString == "")
@@ -134,9 +301,38 @@ namespace WindowsFormsApp1
                 return yourString.Any(ch => !char.IsNumber(ch));
         }
 
+        private bool IsEmpty(string yourString)
+        {
+            if (yourString == "")
+                return true;
+            else
+                return false;
+        }
+
+        private bool IsNotEmail(string yourString)
+        {
+            if (yourString == "")
+                return true;
+
+            string[] arr1 = yourString.Split('@');
+            string[] arr2 = null;
+            if (arr1.Length == 2)
+                arr2 = arr1[1].Split('.');
+
+           if (arr1.Length != 2 || arr2.Length != 2)
+                return true;
+            else
+                return false;
+        }
+
         private void bunifuLabel6_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void guardianContact_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
