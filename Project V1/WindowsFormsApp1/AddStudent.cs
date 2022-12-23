@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -86,11 +87,55 @@ namespace WindowsFormsApp1
         {
             // Checking if form fields are in valid state
             bool formState = formValidate();
-
+            string conStr = "Data Source=DESKTOP-CG5S6II\\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             if (formState)
             {
                 MessageBox.Show("Query Will Run");
+                try
+                {
+                    using (SqlConnection con = new SqlConnection(conStr))
+                    {
+                        using (SqlCommand cmd = new SqlCommand("db_project.dbo.sp_register_student", con))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
 
+                            cmd.Parameters.AddWithValue("@first_name", firstName.Text);
+                            cmd.Parameters.AddWithValue("@last_name", lastName.Text);
+                            cmd.Parameters.AddWithValue("@cnic", studentCNIC.Text);
+                            cmd.Parameters.AddWithValue("@date_of_birth", dateOfBirth.Text);
+                            cmd.Parameters.AddWithValue("@gender", rdbMale.Checked? "Male":"Female");
+                            cmd.Parameters.AddWithValue("@contact_number", contactNumber.Text);
+
+                            cmd.Parameters.AddWithValue("@street_address", streetAddress.Text);
+                            cmd.Parameters.AddWithValue("@town", town.Text);
+                            cmd.Parameters.AddWithValue("@email", email.Text);
+                            cmd.Parameters.AddWithValue("@city", city.Text);
+
+                            cmd.Parameters.AddWithValue("@father_name", fatherName.Text);
+                            cmd.Parameters.AddWithValue("@father_cnic", fatherCNIC.Text);
+                            cmd.Parameters.AddWithValue("@father_contact", fatherContact.Text);
+                            cmd.Parameters.AddWithValue("@father_profession", fatherProfession.Text);
+
+                            cmd.Parameters.AddWithValue("@mother_name", motherName.Text);
+                            cmd.Parameters.AddWithValue("@mother_cnic", motherCNIC.Text);
+                            cmd.Parameters.AddWithValue("@mother_contact", motherContact.Text);
+                            cmd.Parameters.AddWithValue("@mother_profession", motherProfession.Text);
+
+                            cmd.Parameters.AddWithValue("@monthly_income", int.Parse(income.Text));
+                            cmd.Parameters.AddWithValue("@siblings", int.Parse(siblings.Text));
+
+                            cmd.Parameters.AddWithValue("@admin_date", DateTime.Now);
+
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             else
             {
@@ -290,7 +335,7 @@ namespace WindowsFormsApp1
             if (yourString == "")
                 return true;
             else
-                return yourString.Any(ch => !char.IsLetter(ch));
+                return yourString.Any(ch => !char.IsLetter(ch) || !char.IsWhiteSpace(ch));
         }
 
         private bool HasLetter(string yourString)
