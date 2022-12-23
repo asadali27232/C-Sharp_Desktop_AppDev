@@ -27,5 +27,10 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void btnCancelAdmin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

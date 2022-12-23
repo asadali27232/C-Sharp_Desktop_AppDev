@@ -90,7 +90,6 @@ namespace WindowsFormsApp1
             string conStr = "Data Source=DESKTOP-CG5S6II\\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             if (formState)
             {
-                MessageBox.Show("Query Will Run");
                 try
                 {
                     using (SqlConnection con = new SqlConnection(conStr))
@@ -129,17 +128,24 @@ namespace WindowsFormsApp1
                             con.Open();
                             cmd.ExecuteNonQuery();
                             con.Close();
+
+                            SuccessBox box = new SuccessBox("Student Registered Successfully!");
+                            box.Show();
+
+                            btnClearAdminForm_Click(sender, e);
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    ErrorBox errorBox = new ErrorBox(ex.Message);
+                    errorBox.Show();
                 }
             }
             else
             {
-                MessageBox.Show("Query Will NOT Run");
+                WarningBox box = new WarningBox("Please fill up all the fields correctly.");
+                box.Show();
             }
         }
 
@@ -147,7 +153,7 @@ namespace WindowsFormsApp1
         {
             bool formState = true;
             // Checking if form fields are in valid state
-            if(HasNumber(firstName.Text)) {
+            if(NotString(firstName.Text)) {
                 lblFirstName.ForeColor = Color.Red;
                 formState = false;
             }
@@ -156,7 +162,7 @@ namespace WindowsFormsApp1
                 lblFirstName.ForeColor = Color.White;
             }
             
-            if (HasNumber(lastName.Text))
+            if (NotString(lastName.Text))
             {
                 lblLastName.ForeColor = Color.Red;
                 formState = false;
@@ -166,7 +172,7 @@ namespace WindowsFormsApp1
                 lblLastName.ForeColor = Color.White;
             }
 
-            if (HasLetter(studentCNIC.Text))
+            if (NotNumber(studentCNIC.Text))
             {
                 lblStudentCNIC.ForeColor = Color.Red;
                 formState = false;
@@ -176,7 +182,7 @@ namespace WindowsFormsApp1
                 lblStudentCNIC.ForeColor = Color.White;
             }
 
-            if (HasLetter(contactNumber.Text))
+            if (NotNumber(contactNumber.Text))
             {
                 lblContactNumber.ForeColor = Color.Red;
                 formState = false;
@@ -186,7 +192,7 @@ namespace WindowsFormsApp1
                 lblContactNumber.ForeColor = Color.White;
             }
 
-            if (HasNumber(city.Text))
+            if (NotString(city.Text))
             {
                 lblCity.ForeColor = Color.Red;
                 formState = false;
@@ -197,7 +203,7 @@ namespace WindowsFormsApp1
             }
 
 
-            if (HasNumber(fatherName.Text))
+            if (NotString(fatherName.Text))
             {
                 lblFatherName.ForeColor = Color.Red;
                 formState = false;
@@ -207,7 +213,7 @@ namespace WindowsFormsApp1
                 lblFatherName.ForeColor = Color.White;
             }
 
-            if (HasNumber(motherName.Text))
+            if (NotString(motherName.Text))
             {
                 lblMotherName.ForeColor = Color.Red;
                 formState = false;
@@ -217,7 +223,7 @@ namespace WindowsFormsApp1
                 lblMotherName.ForeColor = Color.White;
             }
 
-            if (HasLetter(income.Text))
+            if (NotNumber(income.Text))
             {
                 lblincome.ForeColor = Color.Red;
                 formState = false;
@@ -227,7 +233,7 @@ namespace WindowsFormsApp1
                 lblincome.ForeColor = Color.White;
             }
 
-            if (HasNumber(fatherProfession.Text))
+            if (NotString(fatherProfession.Text))
             {
                 lblFatherProfession.ForeColor = Color.Red;
                 formState = false;
@@ -237,7 +243,7 @@ namespace WindowsFormsApp1
                 lblFatherProfession.ForeColor = Color.White;
             }
 
-            if (HasNumber(motherProfession.Text))
+            if (NotString(motherProfession.Text))
             {
                 lblMotherProfession.ForeColor = Color.Red;
                 formState = false;
@@ -247,7 +253,7 @@ namespace WindowsFormsApp1
                 lblMotherProfession.ForeColor = Color.White;
             }
 
-            if (HasLetter(fatherCNIC.Text))
+            if (NotNumber(fatherCNIC.Text))
             {
                 lblFatherCNIC.ForeColor = Color.Red;
                 formState = false;
@@ -257,7 +263,7 @@ namespace WindowsFormsApp1
                 lblFatherCNIC.ForeColor = Color.White;
             }
 
-            if (HasLetter(motherCNIC.Text))
+            if (NotNumber(motherCNIC.Text))
             {
                 lblMotherCNIC.ForeColor = Color.Red;
                 formState = false;
@@ -267,7 +273,7 @@ namespace WindowsFormsApp1
                 lblMotherCNIC.ForeColor = Color.White;
             }
 
-            if (HasLetter(fatherContact.Text))
+            if (NotNumber(fatherContact.Text))
             {
                 lblFatherContact.ForeColor = Color.Red;
                 formState = false;
@@ -277,7 +283,7 @@ namespace WindowsFormsApp1
                 lblFatherContact.ForeColor = Color.White;
             }
 
-            if (HasLetter(motherContact.Text))
+            if (NotNumber(motherContact.Text))
             {
                 lblMotherContact.ForeColor = Color.Red;
                 formState = false;
@@ -287,7 +293,7 @@ namespace WindowsFormsApp1
                 lblMotherContact.ForeColor = Color.White;
             }
 
-            if (HasLetter(siblings.Text))
+            if (NotNumber(siblings.Text))
             {
                 lblSiblings.ForeColor = Color.Red;
                 formState = false;
@@ -330,15 +336,15 @@ namespace WindowsFormsApp1
             return formState;
         }
 
-        private bool HasNumber(string yourString)
+        private bool NotString(string yourString)
         {
             if (yourString == "")
                 return true;
             else
-                return yourString.Any(ch => !char.IsLetter(ch) || !char.IsWhiteSpace(ch));
+                return !yourString.All(ch => char.IsLetter(ch) || ch==' ');
         }
 
-        private bool HasLetter(string yourString)
+        private bool NotNumber(string yourString)
         {
             if (yourString == "")
                 return true;
