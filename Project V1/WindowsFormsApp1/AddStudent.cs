@@ -27,11 +27,7 @@ namespace WindowsFormsApp1
 
         private void studentImage_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                studentImage.Image = new Bitmap(openFileDialog.FileName);
-            }
+            
         }
 
         private void btnClearAdminForm_Click(object sender, EventArgs e)
@@ -138,7 +134,7 @@ namespace WindowsFormsApp1
                 }
                 catch (Exception ex)
                 {
-                    ErrorBox errorBox = new ErrorBox(ex.Message);
+                    Error errorBox = new Error(ex.Message);
                     errorBox.Show();
                 }
             }

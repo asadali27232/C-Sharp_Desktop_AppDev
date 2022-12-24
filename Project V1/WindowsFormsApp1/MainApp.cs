@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,35 @@ namespace WindowsFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            string conStr = "Data Source=DESKTOP-CG5S6II\\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conStr))
+                {
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM db_project.dbo.udf_get_students_grid()", con))
+                    {
+                        cmd.CommandType = CommandType.Text;
+
+                        con.Open();
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        dt.Load(reader);
+
+
+
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error box = new Error(ex.Message);
+                box.Show();
+            }
+
+            dgvStudents.DataSource = dt;
 
         }
 
@@ -215,7 +245,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                ErrorBox err = new ErrorBox("Wrong credentials! Please try again.");
+                Error err = new Error("Wrong credentials! Please try again.");
                 err.Show();
             }
         }
@@ -274,6 +304,41 @@ namespace WindowsFormsApp1
         }
 
         private void todayDateSideMenu_ValueChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void bunifuDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void pages_Layout(object sender, LayoutEventArgs e)
+        {
+
+        }
+
+        private void dgvStudents_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                var id = dgvStudents.Rows[e.RowIndex].Cells[0].Value;
+                StudentDetail studentDetail = new StudentDetail(id.ToString());
+                studentDetail.Show();
+            }
+        }
+
+        private void titleBar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void titleBar_DoubleClick(object sender, EventArgs e)
         {
             
         }

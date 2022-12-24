@@ -36,8 +36,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblWrong = new Bunifu.UI.WinForms.BunifuLabel();
             this.btnClearAdminForm = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.lblWrong = new Bunifu.UI.WinForms.BunifuLabel();
             this.titleBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoTitlebar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -116,24 +116,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(384, 106);
             this.panel2.TabIndex = 32;
-            // 
-            // lblWrong
-            // 
-            this.lblWrong.AllowParentOverrides = false;
-            this.lblWrong.AutoEllipsis = false;
-            this.lblWrong.AutoSize = false;
-            this.lblWrong.CursorType = null;
-            this.lblWrong.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblWrong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(38)))));
-            this.lblWrong.Location = new System.Drawing.Point(72, 6);
-            this.lblWrong.Name = "lblWrong";
-            this.lblWrong.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.lblWrong.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblWrong.Size = new System.Drawing.Size(295, 53);
-            this.lblWrong.TabIndex = 30;
-            this.lblWrong.Text = "Some cutom error message here.";
-            this.lblWrong.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblWrong.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // btnClearAdminForm
             // 
@@ -228,6 +210,24 @@
             this.btnClearAdminForm.UseDefaultRadiusAndThickness = true;
             this.btnClearAdminForm.Click += new System.EventHandler(this.btnClearAdminForm_Click);
             // 
+            // lblWrong
+            // 
+            this.lblWrong.AllowParentOverrides = false;
+            this.lblWrong.AutoEllipsis = false;
+            this.lblWrong.AutoSize = false;
+            this.lblWrong.CursorType = null;
+            this.lblWrong.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblWrong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(161)))), ((int)(((byte)(38)))));
+            this.lblWrong.Location = new System.Drawing.Point(72, 6);
+            this.lblWrong.Name = "lblWrong";
+            this.lblWrong.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.lblWrong.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblWrong.Size = new System.Drawing.Size(295, 53);
+            this.lblWrong.TabIndex = 30;
+            this.lblWrong.Text = "Some cutom error message here.";
+            this.lblWrong.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblWrong.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
             // WarningBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,11 +236,12 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.titleBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WarningBox";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "WarningBox";
+            this.Text = "Warning";
             this.titleBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logoTitlebar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

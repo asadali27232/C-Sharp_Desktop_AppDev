@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class ErrorBox : Form
+    public partial class Error : Form
     {
-        public ErrorBox(string myMsg)
+        public Error(string myMsg)
         {
             InitializeComponent();
             lblWrong.Text = myMsg;
