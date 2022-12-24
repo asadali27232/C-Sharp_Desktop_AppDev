@@ -116,6 +116,8 @@
             this.titleTitlebar = new Bunifu.UI.WinForms.BunifuLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelAddstudent = new System.Windows.Forms.Panel();
+            this.lblRegNum = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel25 = new Bunifu.UI.WinForms.BunifuLabel();
             this.dateOfBirth = new Bunifu.UI.WinForms.BunifuDatePicker();
             this.lblFemale = new Bunifu.UI.WinForms.BunifuLabel();
@@ -168,13 +170,14 @@
             this.firstName = new Bunifu.UI.WinForms.BunifuTextBox();
             this.contactNumber = new Bunifu.UI.WinForms.BunifuTextBox();
             this.lastName = new Bunifu.UI.WinForms.BunifuTextBox();
-            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.minimize = new System.Windows.Forms.PictureBox();
             this.titleBar.SuspendLayout();
             this.closeMin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoTitlebar)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelAddstudent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.minimize)).BeginInit();
             this.SuspendLayout();
             // 
             // titleBar
@@ -193,11 +196,12 @@
             // 
             this.closeMin.BackColor = System.Drawing.Color.Transparent;
             this.closeMin.Controls.Add(this.close);
+            this.closeMin.Controls.Add(this.minimize);
             this.closeMin.Dock = System.Windows.Forms.DockStyle.Right;
             this.closeMin.Location = new System.Drawing.Point(903, 0);
             this.closeMin.Name = "closeMin";
             this.closeMin.Size = new System.Drawing.Size(81, 37);
-            this.closeMin.TabIndex = 7;
+            this.closeMin.TabIndex = 8;
             // 
             // close
             // 
@@ -210,7 +214,7 @@
             this.close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.close.TabIndex = 2;
             this.close.TabStop = false;
-            this.close.Click += new System.EventHandler(this.close_Click);
+            this.close.Click += new System.EventHandler(this.close_Click_1);
             // 
             // logoTitlebar
             // 
@@ -254,6 +258,7 @@
             // panelAddstudent
             // 
             this.panelAddstudent.BackColor = System.Drawing.Color.White;
+            this.panelAddstudent.Controls.Add(this.lblRegNum);
             this.panelAddstudent.Controls.Add(this.bunifuLabel1);
             this.panelAddstudent.Controls.Add(this.bunifuLabel25);
             this.panelAddstudent.Controls.Add(this.dateOfBirth);
@@ -313,6 +318,43 @@
             this.panelAddstudent.Size = new System.Drawing.Size(976, 520);
             this.panelAddstudent.TabIndex = 0;
             this.panelAddstudent.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAddstudent_Paint);
+            // 
+            // lblRegNum
+            // 
+            this.lblRegNum.AllowParentOverrides = false;
+            this.lblRegNum.AutoEllipsis = false;
+            this.lblRegNum.AutoSize = false;
+            this.lblRegNum.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblRegNum.CursorType = System.Windows.Forms.Cursors.Default;
+            this.lblRegNum.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblRegNum.ForeColor = System.Drawing.Color.Black;
+            this.lblRegNum.Location = new System.Drawing.Point(784, 113);
+            this.lblRegNum.Name = "lblRegNum";
+            this.lblRegNum.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblRegNum.Size = new System.Drawing.Size(170, 30);
+            this.lblRegNum.TabIndex = 97;
+            this.lblRegNum.Text = "%%%%";
+            this.lblRegNum.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblRegNum.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.lblRegNum.Click += new System.EventHandler(this.bunifuLabel4_Click);
+            // 
+            // bunifuLabel1
+            // 
+            this.bunifuLabel1.AllowParentOverrides = false;
+            this.bunifuLabel1.AutoEllipsis = false;
+            this.bunifuLabel1.AutoSize = false;
+            this.bunifuLabel1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic);
+            this.bunifuLabel1.ForeColor = System.Drawing.Color.DimGray;
+            this.bunifuLabel1.Location = new System.Drawing.Point(784, 295);
+            this.bunifuLabel1.Name = "bunifuLabel1";
+            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel1.Size = new System.Drawing.Size(170, 26);
+            this.bunifuLabel1.TabIndex = 96;
+            this.bunifuLabel1.Text = "For officials only";
+            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // bunifuLabel25
             // 
@@ -2615,23 +2657,18 @@
             this.lastName.UseSystemPasswordChar = false;
             this.lastName.WordWrap = false;
             // 
-            // bunifuLabel1
+            // minimize
             // 
-            this.bunifuLabel1.AllowParentOverrides = false;
-            this.bunifuLabel1.AutoEllipsis = false;
-            this.bunifuLabel1.AutoSize = false;
-            this.bunifuLabel1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.bunifuLabel1.ForeColor = System.Drawing.Color.DimGray;
-            this.bunifuLabel1.Location = new System.Drawing.Point(784, 295);
-            this.bunifuLabel1.Name = "bunifuLabel1";
-            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(170, 26);
-            this.bunifuLabel1.TabIndex = 96;
-            this.bunifuLabel1.Text = "For officials only";
-            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.minimize.BackColor = System.Drawing.Color.Transparent;
+            this.minimize.Image = ((System.Drawing.Image)(resources.GetObject("minimize.Image")));
+            this.minimize.Location = new System.Drawing.Point(9, 5);
+            this.minimize.Name = "minimize";
+            this.minimize.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.minimize.Size = new System.Drawing.Size(25, 25);
+            this.minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.minimize.TabIndex = 4;
+            this.minimize.TabStop = false;
+            this.minimize.Click += new System.EventHandler(this.minimize_Click);
             // 
             // AddStudent
             // 
@@ -2647,12 +2684,14 @@
             this.Name = "AddStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Student";
+            this.Load += new System.EventHandler(this.AddStudent_Load);
             this.titleBar.ResumeLayout(false);
             this.closeMin.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoTitlebar)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panelAddstudent.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.minimize)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2660,8 +2699,6 @@
         #endregion
 
         private System.Windows.Forms.Panel titleBar;
-        private System.Windows.Forms.Panel closeMin;
-        private System.Windows.Forms.PictureBox close;
         private System.Windows.Forms.PictureBox logoTitlebar;
         private Bunifu.UI.WinForms.BunifuLabel titleTitlebar;
         private System.Windows.Forms.Panel panel1;
@@ -2719,5 +2756,9 @@
         private Bunifu.UI.WinForms.BunifuLabel lblFirstName;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel25;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
+        private Bunifu.UI.WinForms.BunifuLabel lblRegNum;
+        private System.Windows.Forms.Panel closeMin;
+        private System.Windows.Forms.PictureBox close;
+        private System.Windows.Forms.PictureBox minimize;
     }
 }

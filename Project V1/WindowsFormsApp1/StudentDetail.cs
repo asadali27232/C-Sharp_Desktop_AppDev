@@ -32,11 +32,15 @@ namespace WindowsFormsApp1
 
         private void btnEditStudent_Click(object sender, EventArgs e)
         {
-
+            AddStudent addStudent = new AddStudent(lblID.Text);
+            this.Hide();
+            addStudent.Show();
         }
 
         private void StudentDetail_Load(object sender, EventArgs e)
         {
+            transPanel.BackColor = Color.FromArgb(220, 255, 255, 255);
+
             string conStr = "Data Source=DESKTOP-CG5S6II\\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
 
@@ -84,6 +88,47 @@ namespace WindowsFormsApp1
 
             
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void close_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnDeleteStudent_Click(object sender, EventArgs e)
+        {  
+            string conStr = "Data Source=DESKTOP-CG5S6II\\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conStr))
+                {
+                    using (SqlCommand cmd = new SqlCommand("db_project.dbo.sp_delete_student", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@delID", lblID.Text);
+
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+
+                        SuccessBox box = new SuccessBox("Student Deleted Successfully!");
+                        box.Show();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error errorBox = new Error(ex.Message);
+                errorBox.Show();
+            }
+            this.Hide();
         }
     }
 }

@@ -28,17 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentDetail));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            this.titleBar = new System.Windows.Forms.Panel();
-            this.closeMin = new System.Windows.Forms.Panel();
-            this.close = new System.Windows.Forms.PictureBox();
-            this.logoTitlebar = new System.Windows.Forms.PictureBox();
-            this.titleTitlebar = new Bunifu.UI.WinForms.BunifuLabel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentDetail));
+            this.transPanel = new System.Windows.Forms.Panel();
             this.lblID = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel38 = new Bunifu.UI.WinForms.BunifuLabel();
             this.btnDeleteStudent = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -79,151 +72,61 @@
             this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
             this.lblName = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.titleBar.SuspendLayout();
-            this.closeMin.SuspendLayout();
+            this.close = new System.Windows.Forms.PictureBox();
+            this.transPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.close)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logoTitlebar)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // titleBar
+            // transPanel
             // 
-            this.titleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
-            this.titleBar.Controls.Add(this.closeMin);
-            this.titleBar.Controls.Add(this.logoTitlebar);
-            this.titleBar.Controls.Add(this.titleTitlebar);
-            this.titleBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.titleBar.Location = new System.Drawing.Point(0, 0);
-            this.titleBar.Name = "titleBar";
-            this.titleBar.Size = new System.Drawing.Size(800, 37);
-            this.titleBar.TabIndex = 3;
-            // 
-            // closeMin
-            // 
-            this.closeMin.BackColor = System.Drawing.Color.Transparent;
-            this.closeMin.Controls.Add(this.close);
-            this.closeMin.Dock = System.Windows.Forms.DockStyle.Right;
-            this.closeMin.Location = new System.Drawing.Point(719, 0);
-            this.closeMin.Name = "closeMin";
-            this.closeMin.Size = new System.Drawing.Size(81, 37);
-            this.closeMin.TabIndex = 7;
-            // 
-            // close
-            // 
-            this.close.BackColor = System.Drawing.Color.Transparent;
-            this.close.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.close.Image = ((System.Drawing.Image)(resources.GetObject("close.Image")));
-            this.close.Location = new System.Drawing.Point(44, 5);
-            this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(25, 25);
-            this.close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.close.TabIndex = 2;
-            this.close.TabStop = false;
-            this.close.Click += new System.EventHandler(this.close_Click);
-            // 
-            // logoTitlebar
-            // 
-            this.logoTitlebar.BackColor = System.Drawing.Color.Transparent;
-            this.logoTitlebar.Image = ((System.Drawing.Image)(resources.GetObject("logoTitlebar.Image")));
-            this.logoTitlebar.Location = new System.Drawing.Point(12, 5);
-            this.logoTitlebar.Name = "logoTitlebar";
-            this.logoTitlebar.Size = new System.Drawing.Size(25, 25);
-            this.logoTitlebar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logoTitlebar.TabIndex = 6;
-            this.logoTitlebar.TabStop = false;
-            // 
-            // titleTitlebar
-            // 
-            this.titleTitlebar.AllowParentOverrides = false;
-            this.titleTitlebar.AutoEllipsis = false;
-            this.titleTitlebar.AutoSize = false;
-            this.titleTitlebar.CursorType = null;
-            this.titleTitlebar.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.titleTitlebar.ForeColor = System.Drawing.Color.White;
-            this.titleTitlebar.Location = new System.Drawing.Point(43, 1);
-            this.titleTitlebar.Name = "titleTitlebar";
-            this.titleTitlebar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.titleTitlebar.Size = new System.Drawing.Size(607, 33);
-            this.titleTitlebar.TabIndex = 5;
-            this.titleTitlebar.Text = "Student Details";
-            this.titleTitlebar.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.titleTitlebar.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 37);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(4, 0, 4, 4);
-            this.panel1.Size = new System.Drawing.Size(800, 563);
-            this.panel1.TabIndex = 4;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(4, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(792, 559);
-            this.panel2.TabIndex = 0;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.panel3.Controls.Add(this.lblID);
-            this.panel3.Controls.Add(this.bunifuLabel38);
-            this.panel3.Controls.Add(this.btnDeleteStudent);
-            this.panel3.Controls.Add(this.btnEditStudent);
-            this.panel3.Controls.Add(this.lblAdminDate);
-            this.panel3.Controls.Add(this.bunifuLabel36);
-            this.panel3.Controls.Add(this.lblSiblings);
-            this.panel3.Controls.Add(this.bunifuLabel34);
-            this.panel3.Controls.Add(this.lblIncome);
-            this.panel3.Controls.Add(this.bunifuLabel32);
-            this.panel3.Controls.Add(this.lblMotherProfession);
-            this.panel3.Controls.Add(this.bunifuLabel24);
-            this.panel3.Controls.Add(this.lblMotherContact);
-            this.panel3.Controls.Add(this.bunifuLabel26);
-            this.panel3.Controls.Add(this.lblMotherCNIC);
-            this.panel3.Controls.Add(this.bunifuLabel28);
-            this.panel3.Controls.Add(this.lblMotherName);
-            this.panel3.Controls.Add(this.bunifuLabel30);
-            this.panel3.Controls.Add(this.lblFatherProfession);
-            this.panel3.Controls.Add(this.bunifuLabel22);
-            this.panel3.Controls.Add(this.lblFatherContact);
-            this.panel3.Controls.Add(this.bunifuLabel20);
-            this.panel3.Controls.Add(this.lblFatherCNIC);
-            this.panel3.Controls.Add(this.bunifuLabel18);
-            this.panel3.Controls.Add(this.lblFatherName);
-            this.panel3.Controls.Add(this.bunifuLabel10);
-            this.panel3.Controls.Add(this.lblAddress);
-            this.panel3.Controls.Add(this.bunifuLabel12);
-            this.panel3.Controls.Add(this.lblEmail);
-            this.panel3.Controls.Add(this.bunifuLabel14);
-            this.panel3.Controls.Add(this.lblContact);
-            this.panel3.Controls.Add(this.bunifuLabel16);
-            this.panel3.Controls.Add(this.lblGnder);
-            this.panel3.Controls.Add(this.bunifuLabel6);
-            this.panel3.Controls.Add(this.lblDoB);
-            this.panel3.Controls.Add(this.bunifuLabel8);
-            this.panel3.Controls.Add(this.lblCNIC);
-            this.panel3.Controls.Add(this.bunifuLabel4);
-            this.panel3.Controls.Add(this.lblName);
-            this.panel3.Controls.Add(this.bunifuLabel1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(369, 559);
-            this.panel3.TabIndex = 1;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            this.transPanel.BackColor = System.Drawing.Color.White;
+            this.transPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.transPanel.Controls.Add(this.close);
+            this.transPanel.Controls.Add(this.lblID);
+            this.transPanel.Controls.Add(this.bunifuLabel38);
+            this.transPanel.Controls.Add(this.btnDeleteStudent);
+            this.transPanel.Controls.Add(this.btnEditStudent);
+            this.transPanel.Controls.Add(this.lblAdminDate);
+            this.transPanel.Controls.Add(this.bunifuLabel36);
+            this.transPanel.Controls.Add(this.lblSiblings);
+            this.transPanel.Controls.Add(this.bunifuLabel34);
+            this.transPanel.Controls.Add(this.lblIncome);
+            this.transPanel.Controls.Add(this.bunifuLabel32);
+            this.transPanel.Controls.Add(this.lblMotherProfession);
+            this.transPanel.Controls.Add(this.bunifuLabel24);
+            this.transPanel.Controls.Add(this.lblMotherContact);
+            this.transPanel.Controls.Add(this.bunifuLabel26);
+            this.transPanel.Controls.Add(this.lblMotherCNIC);
+            this.transPanel.Controls.Add(this.bunifuLabel28);
+            this.transPanel.Controls.Add(this.lblMotherName);
+            this.transPanel.Controls.Add(this.bunifuLabel30);
+            this.transPanel.Controls.Add(this.lblFatherProfession);
+            this.transPanel.Controls.Add(this.bunifuLabel22);
+            this.transPanel.Controls.Add(this.lblFatherContact);
+            this.transPanel.Controls.Add(this.bunifuLabel20);
+            this.transPanel.Controls.Add(this.lblFatherCNIC);
+            this.transPanel.Controls.Add(this.bunifuLabel18);
+            this.transPanel.Controls.Add(this.lblFatherName);
+            this.transPanel.Controls.Add(this.bunifuLabel10);
+            this.transPanel.Controls.Add(this.lblAddress);
+            this.transPanel.Controls.Add(this.bunifuLabel12);
+            this.transPanel.Controls.Add(this.lblEmail);
+            this.transPanel.Controls.Add(this.bunifuLabel14);
+            this.transPanel.Controls.Add(this.lblContact);
+            this.transPanel.Controls.Add(this.bunifuLabel16);
+            this.transPanel.Controls.Add(this.lblGnder);
+            this.transPanel.Controls.Add(this.bunifuLabel6);
+            this.transPanel.Controls.Add(this.lblDoB);
+            this.transPanel.Controls.Add(this.bunifuLabel8);
+            this.transPanel.Controls.Add(this.lblCNIC);
+            this.transPanel.Controls.Add(this.bunifuLabel4);
+            this.transPanel.Controls.Add(this.lblName);
+            this.transPanel.Controls.Add(this.bunifuLabel1);
+            this.transPanel.Location = new System.Drawing.Point(10, 9);
+            this.transPanel.Name = "transPanel";
+            this.transPanel.Size = new System.Drawing.Size(350, 560);
+            this.transPanel.TabIndex = 1;
+            this.transPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // lblID
             // 
@@ -231,7 +134,7 @@
             this.lblID.AutoEllipsis = false;
             this.lblID.CursorType = null;
             this.lblID.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.ForeColor = System.Drawing.Color.Black;
+            this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.lblID.Location = new System.Drawing.Point(154, 21);
             this.lblID.Name = "lblID";
             this.lblID.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -247,7 +150,7 @@
             this.bunifuLabel38.AutoEllipsis = false;
             this.bunifuLabel38.CursorType = null;
             this.bunifuLabel38.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel38.ForeColor = System.Drawing.Color.Black;
+            this.bunifuLabel38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.bunifuLabel38.Location = new System.Drawing.Point(33, 21);
             this.bunifuLabel38.Name = "bunifuLabel38";
             this.bunifuLabel38.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -348,6 +251,7 @@
             this.btnDeleteStudent.TextMarginLeft = 0;
             this.btnDeleteStudent.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnDeleteStudent.UseDefaultRadiusAndThickness = true;
+            this.btnDeleteStudent.Click += new System.EventHandler(this.btnDeleteStudent_Click);
             // 
             // btnEditStudent
             // 
@@ -398,7 +302,7 @@
             this.btnEditStudent.IdleIconLeftImage = null;
             this.btnEditStudent.IdleIconRightImage = null;
             this.btnEditStudent.IndicateFocus = false;
-            this.btnEditStudent.Location = new System.Drawing.Point(193, 499);
+            this.btnEditStudent.Location = new System.Drawing.Point(181, 499);
             this.btnEditStudent.Margin = new System.Windows.Forms.Padding(5);
             this.btnEditStudent.Name = "btnEditStudent";
             this.btnEditStudent.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
@@ -448,7 +352,7 @@
             this.lblAdminDate.AutoEllipsis = false;
             this.lblAdminDate.CursorType = null;
             this.lblAdminDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdminDate.ForeColor = System.Drawing.Color.Black;
+            this.lblAdminDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.lblAdminDate.Location = new System.Drawing.Point(154, 457);
             this.lblAdminDate.Name = "lblAdminDate";
             this.lblAdminDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -464,13 +368,13 @@
             this.bunifuLabel36.AutoEllipsis = false;
             this.bunifuLabel36.CursorType = null;
             this.bunifuLabel36.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel36.ForeColor = System.Drawing.Color.Black;
+            this.bunifuLabel36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.bunifuLabel36.Location = new System.Drawing.Point(33, 457);
             this.bunifuLabel36.Name = "bunifuLabel36";
             this.bunifuLabel36.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel36.Size = new System.Drawing.Size(95, 17);
+            this.bunifuLabel36.Size = new System.Drawing.Size(102, 17);
             this.bunifuLabel36.TabIndex = 34;
-            this.bunifuLabel36.Text = "Admission Date";
+            this.bunifuLabel36.Text = "Admission Date :";
             this.bunifuLabel36.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel36.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
@@ -480,7 +384,7 @@
             this.lblSiblings.AutoEllipsis = false;
             this.lblSiblings.CursorType = null;
             this.lblSiblings.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSiblings.ForeColor = System.Drawing.Color.Black;
+            this.lblSiblings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.lblSiblings.Location = new System.Drawing.Point(154, 434);
             this.lblSiblings.Name = "lblSiblings";
             this.lblSiblings.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -496,13 +400,13 @@
             this.bunifuLabel34.AutoEllipsis = false;
             this.bunifuLabel34.CursorType = null;
             this.bunifuLabel34.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel34.ForeColor = System.Drawing.Color.Black;
+            this.bunifuLabel34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.bunifuLabel34.Location = new System.Drawing.Point(33, 434);
             this.bunifuLabel34.Name = "bunifuLabel34";
             this.bunifuLabel34.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel34.Size = new System.Drawing.Size(46, 17);
+            this.bunifuLabel34.Size = new System.Drawing.Size(53, 17);
             this.bunifuLabel34.TabIndex = 32;
-            this.bunifuLabel34.Text = "Siblings";
+            this.bunifuLabel34.Text = "Siblings :";
             this.bunifuLabel34.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel34.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
@@ -512,7 +416,7 @@
             this.lblIncome.AutoEllipsis = false;
             this.lblIncome.CursorType = null;
             this.lblIncome.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIncome.ForeColor = System.Drawing.Color.Black;
+            this.lblIncome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.lblIncome.Location = new System.Drawing.Point(154, 411);
             this.lblIncome.Name = "lblIncome";
             this.lblIncome.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -528,13 +432,13 @@
             this.bunifuLabel32.AutoEllipsis = false;
             this.bunifuLabel32.CursorType = null;
             this.bunifuLabel32.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel32.ForeColor = System.Drawing.Color.Black;
+            this.bunifuLabel32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.bunifuLabel32.Location = new System.Drawing.Point(33, 411);
             this.bunifuLabel32.Name = "bunifuLabel32";
             this.bunifuLabel32.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel32.Size = new System.Drawing.Size(100, 17);
+            this.bunifuLabel32.Size = new System.Drawing.Size(107, 17);
             this.bunifuLabel32.TabIndex = 30;
-            this.bunifuLabel32.Text = "Monthly Income";
+            this.bunifuLabel32.Text = "Monthly Income :";
             this.bunifuLabel32.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel32.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
@@ -544,7 +448,7 @@
             this.lblMotherProfession.AutoEllipsis = false;
             this.lblMotherProfession.CursorType = null;
             this.lblMotherProfession.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMotherProfession.ForeColor = System.Drawing.Color.Black;
+            this.lblMotherProfession.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.lblMotherProfession.Location = new System.Drawing.Point(154, 388);
             this.lblMotherProfession.Name = "lblMotherProfession";
             this.lblMotherProfession.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -560,7 +464,7 @@
             this.bunifuLabel24.AutoEllipsis = false;
             this.bunifuLabel24.CursorType = null;
             this.bunifuLabel24.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel24.ForeColor = System.Drawing.Color.Black;
+            this.bunifuLabel24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.bunifuLabel24.Location = new System.Drawing.Point(33, 388);
             this.bunifuLabel24.Name = "bunifuLabel24";
             this.bunifuLabel24.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -576,7 +480,7 @@
             this.lblMotherContact.AutoEllipsis = false;
             this.lblMotherContact.CursorType = null;
             this.lblMotherContact.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMotherContact.ForeColor = System.Drawing.Color.Black;
+            this.lblMotherContact.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.lblMotherContact.Location = new System.Drawing.Point(154, 365);
             this.lblMotherContact.Name = "lblMotherContact";
             this.lblMotherContact.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -592,7 +496,7 @@
             this.bunifuLabel26.AutoEllipsis = false;
             this.bunifuLabel26.CursorType = null;
             this.bunifuLabel26.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel26.ForeColor = System.Drawing.Color.Black;
+            this.bunifuLabel26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.bunifuLabel26.Location = new System.Drawing.Point(33, 365);
             this.bunifuLabel26.Name = "bunifuLabel26";
             this.bunifuLabel26.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -608,7 +512,7 @@
             this.lblMotherCNIC.AutoEllipsis = false;
             this.lblMotherCNIC.CursorType = null;
             this.lblMotherCNIC.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMotherCNIC.ForeColor = System.Drawing.Color.Black;
+            this.lblMotherCNIC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.lblMotherCNIC.Location = new System.Drawing.Point(154, 342);
             this.lblMotherCNIC.Name = "lblMotherCNIC";
             this.lblMotherCNIC.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -624,7 +528,7 @@
             this.bunifuLabel28.AutoEllipsis = false;
             this.bunifuLabel28.CursorType = null;
             this.bunifuLabel28.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel28.ForeColor = System.Drawing.Color.Black;
+            this.bunifuLabel28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.bunifuLabel28.Location = new System.Drawing.Point(33, 342);
             this.bunifuLabel28.Name = "bunifuLabel28";
             this.bunifuLabel28.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -640,7 +544,7 @@
             this.lblMotherName.AutoEllipsis = false;
             this.lblMotherName.CursorType = null;
             this.lblMotherName.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMotherName.ForeColor = System.Drawing.Color.Black;
+            this.lblMotherName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.lblMotherName.Location = new System.Drawing.Point(154, 319);
             this.lblMotherName.Name = "lblMotherName";
             this.lblMotherName.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -656,7 +560,7 @@
             this.bunifuLabel30.AutoEllipsis = false;
             this.bunifuLabel30.CursorType = null;
             this.bunifuLabel30.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel30.ForeColor = System.Drawing.Color.Black;
+            this.bunifuLabel30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.bunifuLabel30.Location = new System.Drawing.Point(33, 319);
             this.bunifuLabel30.Name = "bunifuLabel30";
             this.bunifuLabel30.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -672,7 +576,7 @@
             this.lblFatherProfession.AutoEllipsis = false;
             this.lblFatherProfession.CursorType = null;
             this.lblFatherProfession.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFatherProfession.ForeColor = System.Drawing.Color.Black;
+            this.lblFatherProfession.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.lblFatherProfession.Location = new System.Drawing.Point(154, 296);
             this.lblFatherProfession.Name = "lblFatherProfession";
             this.lblFatherProfession.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -688,7 +592,7 @@
             this.bunifuLabel22.AutoEllipsis = false;
             this.bunifuLabel22.CursorType = null;
             this.bunifuLabel22.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel22.ForeColor = System.Drawing.Color.Black;
+            this.bunifuLabel22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.bunifuLabel22.Location = new System.Drawing.Point(33, 296);
             this.bunifuLabel22.Name = "bunifuLabel22";
             this.bunifuLabel22.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -704,7 +608,7 @@
             this.lblFatherContact.AutoEllipsis = false;
             this.lblFatherContact.CursorType = null;
             this.lblFatherContact.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFatherContact.ForeColor = System.Drawing.Color.Black;
+            this.lblFatherContact.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.lblFatherContact.Location = new System.Drawing.Point(154, 273);
             this.lblFatherContact.Name = "lblFatherContact";
             this.lblFatherContact.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -720,7 +624,7 @@
             this.bunifuLabel20.AutoEllipsis = false;
             this.bunifuLabel20.CursorType = null;
             this.bunifuLabel20.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel20.ForeColor = System.Drawing.Color.Black;
+            this.bunifuLabel20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.bunifuLabel20.Location = new System.Drawing.Point(33, 273);
             this.bunifuLabel20.Name = "bunifuLabel20";
             this.bunifuLabel20.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -736,7 +640,7 @@
             this.lblFatherCNIC.AutoEllipsis = false;
             this.lblFatherCNIC.CursorType = null;
             this.lblFatherCNIC.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFatherCNIC.ForeColor = System.Drawing.Color.Black;
+            this.lblFatherCNIC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.lblFatherCNIC.Location = new System.Drawing.Point(154, 250);
             this.lblFatherCNIC.Name = "lblFatherCNIC";
             this.lblFatherCNIC.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -752,7 +656,7 @@
             this.bunifuLabel18.AutoEllipsis = false;
             this.bunifuLabel18.CursorType = null;
             this.bunifuLabel18.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel18.ForeColor = System.Drawing.Color.Black;
+            this.bunifuLabel18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.bunifuLabel18.Location = new System.Drawing.Point(33, 250);
             this.bunifuLabel18.Name = "bunifuLabel18";
             this.bunifuLabel18.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -768,7 +672,7 @@
             this.lblFatherName.AutoEllipsis = false;
             this.lblFatherName.CursorType = null;
             this.lblFatherName.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFatherName.ForeColor = System.Drawing.Color.Black;
+            this.lblFatherName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.lblFatherName.Location = new System.Drawing.Point(154, 227);
             this.lblFatherName.Name = "lblFatherName";
             this.lblFatherName.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -784,7 +688,7 @@
             this.bunifuLabel10.AutoEllipsis = false;
             this.bunifuLabel10.CursorType = null;
             this.bunifuLabel10.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel10.ForeColor = System.Drawing.Color.Black;
+            this.bunifuLabel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.bunifuLabel10.Location = new System.Drawing.Point(33, 227);
             this.bunifuLabel10.Name = "bunifuLabel10";
             this.bunifuLabel10.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -801,14 +705,14 @@
             this.lblAddress.AutoSize = false;
             this.lblAddress.CursorType = null;
             this.lblAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress.ForeColor = System.Drawing.Color.Black;
+            this.lblAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.lblAddress.Location = new System.Drawing.Point(154, 181);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblAddress.Size = new System.Drawing.Size(206, 40);
+            this.lblAddress.Size = new System.Drawing.Size(184, 40);
             this.lblAddress.TabIndex = 13;
-            this.lblAddress.Text = "Sufiya Abad Nishter Colony Lahore Lahore Lahore";
-            this.lblAddress.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblAddress.Text = "Sufiya Abad Nishter Colony Lahore Lahore Lahore Lahore Lahore";
+            this.lblAddress.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lblAddress.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // bunifuLabel12
@@ -817,7 +721,7 @@
             this.bunifuLabel12.AutoEllipsis = false;
             this.bunifuLabel12.CursorType = null;
             this.bunifuLabel12.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel12.ForeColor = System.Drawing.Color.Black;
+            this.bunifuLabel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.bunifuLabel12.Location = new System.Drawing.Point(33, 181);
             this.bunifuLabel12.Name = "bunifuLabel12";
             this.bunifuLabel12.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -833,7 +737,7 @@
             this.lblEmail.AutoEllipsis = false;
             this.lblEmail.CursorType = null;
             this.lblEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.ForeColor = System.Drawing.Color.Black;
+            this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.lblEmail.Location = new System.Drawing.Point(154, 158);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -849,7 +753,7 @@
             this.bunifuLabel14.AutoEllipsis = false;
             this.bunifuLabel14.CursorType = null;
             this.bunifuLabel14.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel14.ForeColor = System.Drawing.Color.Black;
+            this.bunifuLabel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.bunifuLabel14.Location = new System.Drawing.Point(33, 158);
             this.bunifuLabel14.Name = "bunifuLabel14";
             this.bunifuLabel14.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -865,7 +769,7 @@
             this.lblContact.AutoEllipsis = false;
             this.lblContact.CursorType = null;
             this.lblContact.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContact.ForeColor = System.Drawing.Color.Black;
+            this.lblContact.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.lblContact.Location = new System.Drawing.Point(154, 135);
             this.lblContact.Name = "lblContact";
             this.lblContact.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -881,7 +785,7 @@
             this.bunifuLabel16.AutoEllipsis = false;
             this.bunifuLabel16.CursorType = null;
             this.bunifuLabel16.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel16.ForeColor = System.Drawing.Color.Black;
+            this.bunifuLabel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.bunifuLabel16.Location = new System.Drawing.Point(33, 135);
             this.bunifuLabel16.Name = "bunifuLabel16";
             this.bunifuLabel16.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -897,7 +801,7 @@
             this.lblGnder.AutoEllipsis = false;
             this.lblGnder.CursorType = null;
             this.lblGnder.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGnder.ForeColor = System.Drawing.Color.Black;
+            this.lblGnder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.lblGnder.Location = new System.Drawing.Point(154, 112);
             this.lblGnder.Name = "lblGnder";
             this.lblGnder.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -913,7 +817,7 @@
             this.bunifuLabel6.AutoEllipsis = false;
             this.bunifuLabel6.CursorType = null;
             this.bunifuLabel6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel6.ForeColor = System.Drawing.Color.Black;
+            this.bunifuLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.bunifuLabel6.Location = new System.Drawing.Point(33, 112);
             this.bunifuLabel6.Name = "bunifuLabel6";
             this.bunifuLabel6.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -929,7 +833,7 @@
             this.lblDoB.AutoEllipsis = false;
             this.lblDoB.CursorType = null;
             this.lblDoB.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDoB.ForeColor = System.Drawing.Color.Black;
+            this.lblDoB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.lblDoB.Location = new System.Drawing.Point(154, 89);
             this.lblDoB.Name = "lblDoB";
             this.lblDoB.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -945,7 +849,7 @@
             this.bunifuLabel8.AutoEllipsis = false;
             this.bunifuLabel8.CursorType = null;
             this.bunifuLabel8.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel8.ForeColor = System.Drawing.Color.Black;
+            this.bunifuLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.bunifuLabel8.Location = new System.Drawing.Point(33, 89);
             this.bunifuLabel8.Name = "bunifuLabel8";
             this.bunifuLabel8.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -961,7 +865,7 @@
             this.lblCNIC.AutoEllipsis = false;
             this.lblCNIC.CursorType = null;
             this.lblCNIC.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCNIC.ForeColor = System.Drawing.Color.Black;
+            this.lblCNIC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.lblCNIC.Location = new System.Drawing.Point(154, 66);
             this.lblCNIC.Name = "lblCNIC";
             this.lblCNIC.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -977,7 +881,7 @@
             this.bunifuLabel4.AutoEllipsis = false;
             this.bunifuLabel4.CursorType = null;
             this.bunifuLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel4.ForeColor = System.Drawing.Color.Black;
+            this.bunifuLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.bunifuLabel4.Location = new System.Drawing.Point(33, 66);
             this.bunifuLabel4.Name = "bunifuLabel4";
             this.bunifuLabel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -993,7 +897,7 @@
             this.lblName.AutoEllipsis = false;
             this.lblName.CursorType = null;
             this.lblName.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.ForeColor = System.Drawing.Color.Black;
+            this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.lblName.Location = new System.Drawing.Point(154, 43);
             this.lblName.Name = "lblName";
             this.lblName.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1010,7 +914,7 @@
             this.bunifuLabel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel1.ForeColor = System.Drawing.Color.Black;
+            this.bunifuLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(76)))), ((int)(((byte)(229)))));
             this.bunifuLabel1.Location = new System.Drawing.Point(33, 43);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1020,25 +924,28 @@
             this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
-            // pictureBox1
+            // close
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(369, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(423, 559);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.close.BackColor = System.Drawing.Color.Transparent;
+            this.close.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.close.Image = ((System.Drawing.Image)(resources.GetObject("close.Image")));
+            this.close.Location = new System.Drawing.Point(313, 11);
+            this.close.Name = "close";
+            this.close.Size = new System.Drawing.Size(25, 25);
+            this.close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.close.TabIndex = 94;
+            this.close.TabStop = false;
+            this.close.Click += new System.EventHandler(this.close_Click_1);
             // 
             // StudentDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(800, 600);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.titleBar);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(370, 580);
+            this.Controls.Add(this.transPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -1047,30 +954,15 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student Detail";
             this.Load += new System.EventHandler(this.StudentDetail_Load);
-            this.titleBar.ResumeLayout(false);
-            this.closeMin.ResumeLayout(false);
+            this.transPanel.ResumeLayout(false);
+            this.transPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.close)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logoTitlebar)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel titleBar;
-        private System.Windows.Forms.Panel closeMin;
-        private System.Windows.Forms.PictureBox close;
-        private System.Windows.Forms.PictureBox logoTitlebar;
-        private Bunifu.UI.WinForms.BunifuLabel titleTitlebar;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel transPanel;
         private Bunifu.UI.WinForms.BunifuLabel lblName;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
         private Bunifu.UI.WinForms.BunifuLabel lblGnder;
@@ -1111,5 +1003,6 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnEditStudent;
         private Bunifu.UI.WinForms.BunifuLabel lblID;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel38;
+        private System.Windows.Forms.PictureBox close;
     }
 }

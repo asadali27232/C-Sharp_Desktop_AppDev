@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +14,11 @@ namespace WindowsFormsApp1
 {
     public partial class AddStudent : Form
     {
-        public AddStudent()
+        string strID;
+        public AddStudent(string ID)
         {
             InitializeComponent();
+            strID = ID;
         }
 
         private void close_Click(object sender, EventArgs e)
@@ -56,7 +59,7 @@ namespace WindowsFormsApp1
 
         private void btnLeftExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
 
         private void panelAddstudent_Paint(object sender, PaintEventArgs e)
@@ -90,9 +93,14 @@ namespace WindowsFormsApp1
                 {
                     using (SqlConnection con = new SqlConnection(conStr))
                     {
-                        using (SqlCommand cmd = new SqlCommand("db_project.dbo.sp_register_student", con))
+                        string query = lblRegNum.Text == "%%%%" ? "db_project.dbo.sp_register_student" : "db_project.dbo.sp_update_student";
+
+                        using (SqlCommand cmd = new SqlCommand(query, con))
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
+
+                            if (lblRegNum.Text != "%%%%")
+                                cmd.Parameters.AddWithValue("@id", lblRegNum.Text);
 
                             cmd.Parameters.AddWithValue("@first_name", firstName.Text);
                             cmd.Parameters.AddWithValue("@last_name", lastName.Text);
@@ -119,7 +127,8 @@ namespace WindowsFormsApp1
                             cmd.Parameters.AddWithValue("@monthly_income", int.Parse(income.Text));
                             cmd.Parameters.AddWithValue("@siblings", int.Parse(siblings.Text));
 
-                            cmd.Parameters.AddWithValue("@admin_date", DateTime.Now);
+                            if (lblRegNum.Text == "%%%%")
+                                cmd.Parameters.AddWithValue("@admin_date", DateTime.Now);
 
                             con.Open();
                             cmd.ExecuteNonQuery();
@@ -129,6 +138,7 @@ namespace WindowsFormsApp1
                             box.Show();
 
                             btnClearAdminForm_Click(sender, e);
+                            this.Hide();
                         }
                     }
                 }
@@ -380,6 +390,106 @@ namespace WindowsFormsApp1
         private void guardianContact_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void bunifuLabel4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddStudent_Load(object sender, EventArgs e)
+        {
+            lblRegNum.Text = strID;
+            string conStr = "Data Source=DESKTOP-CG5S6II\\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+            string detailID;
+            if (strID == "%%%%")
+                detailID = "-1";
+            else
+                detailID = strID;
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conStr))
+                {
+                    using (SqlCommand cmd = new SqlCommand($"SELECT * FROM db_project.dbo.udf_get_student_detail({detailID})", con))
+                    {
+                        cmd.CommandType = CommandType.Text;
+
+                        con.Open();
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            string[] name = reader.GetValue(0).ToString().Split(' ');
+                            for (int i = 0; i < name.Length - 1; i++)
+                            {
+                                firstName.Text += name[i] + (i == name.Length-2 ? "": " ");
+                            }
+                            lastName.Text = name[name.Length-1];
+
+                            studentCNIC.Text = reader.GetValue(1).ToString();
+
+                            DateTime dob = DateTime.ParseExact(reader.GetValue(2).ToString().Replace('-', '/'), "dd/MM/yyyy", CultureInfo.CurrentCulture);
+                            dateOfBirth.Value = dob;
+
+                            if (reader.GetValue(3).ToString() == "Male" || reader.GetValue(3).ToString() == "male")
+                            {
+                                rdbMale.Checked = true;
+                                rdbFemale.Checked = false;
+                            }   
+                            else
+                            {
+                                rdbFemale.Checked = true;
+                                rdbMale.Checked = false;
+                            }
+
+                            contactNumber.Text = reader.GetValue(4).ToString();
+                            email.Text = reader.GetValue(5).ToString();
+
+                            string[] address = reader.GetValue(6).ToString().Split(',');
+
+                            for (int i = 0; i < address.Length - 2; i++)
+                            {
+                                streetAddress.Text += address[i] + (i == address.Length - 3 ? "" : ",");
+                            }
+                            town.Text = address[address.Length-2];
+                            city.Text = address[address.Length - 1];
+
+                            fatherName.Text = reader.GetValue(7).ToString();
+                            fatherCNIC.Text = reader.GetValue(8).ToString();
+                            fatherContact.Text = reader.GetValue(9).ToString();
+                            fatherProfession.Text = reader.GetValue(10).ToString();
+                            motherName.Text = reader.GetValue(11).ToString();
+                            motherCNIC.Text = reader.GetValue(12).ToString();
+                            motherContact.Text = reader.GetValue(13).ToString();
+                            motherProfession.Text = reader.GetValue(14).ToString();
+                            income.Text = reader.GetValue(15).ToString();
+                            siblings.Text = reader.GetValue(16).ToString();
+
+
+                            string adminDate = reader.GetValue(17).ToString();
+                        }
+
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error box = new Error(ex.Message);
+                box.Show();
+            }
+        }
+
+        private void close_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void minimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

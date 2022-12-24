@@ -16,31 +16,29 @@ namespace WindowsFormsApp1
         public SAM()
         {
             InitializeComponent();
-            pages.SetPage("Home");
+            pages.SetPage("Login");
             todayDateSideMenu.Value = DateTime.Now;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            LoadStudentGrid("%", "%", "%");
+        }
+        private void TotatStudentsCount()
+        {
             string conStr = "Data Source=DESKTOP-CG5S6II\\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-
-            DataTable dt = new DataTable();
 
             try
             {
                 using (SqlConnection con = new SqlConnection(conStr))
                 {
-                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM db_project.dbo.udf_get_students_grid()", con))
+                    using (SqlCommand cmd = new SqlCommand("SELECT db_project.dbo.udf_tbl_students_row_cout()", con))
                     {
                         cmd.CommandType = CommandType.Text;
 
                         con.Open();
-                        SqlDataReader reader = cmd.ExecuteReader();
-                        dt.Load(reader);
-
-
-
-
+                        lblTotalStudentsCout.Text = cmd.ExecuteScalar().ToString();
+                        con.Close();
                     }
                 }
             }
@@ -50,8 +48,37 @@ namespace WindowsFormsApp1
                 box.Show();
             }
 
-            dgvStudents.DataSource = dt;
+        }
+        private void LoadStudentGrid(string sID, string sName, string sCNIC)
+        {
+            string conStr = "Data Source=DESKTOP-CG5S6II\\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
+            TotatStudentsCount();
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conStr))
+                {
+                    using (SqlCommand cmd = new SqlCommand($"SELECT * FROM db_project.dbo.udf_get_students_grid('{sID}', '{sName}', '{sCNIC}')", con))
+                    {
+                        cmd.CommandType = CommandType.Text;
+
+                        con.Open();
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        dt.Load(reader);
+                        con.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error box = new Error(ex.Message);
+                box.Show();
+            }
+            dgvStudents.DataSource = dt;
+            lblGridStudentCount.Text = dt.Rows.Count.ToString();
         }
 
         private void sideMenuTitle_Click(object sender, EventArgs e)
@@ -201,7 +228,7 @@ namespace WindowsFormsApp1
 
         private void btnAddStudent_Click(object sender, EventArgs e)
         {
-            AddStudent addStudent = new AddStudent();
+            AddStudent addStudent = new AddStudent("%%%%");
             addStudent.ShowDialog(this);
         }
 
@@ -341,6 +368,71 @@ namespace WindowsFormsApp1
         private void titleBar_DoubleClick(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            LoadStudentGrid("%", "%", "%");
+        }
+
+        private void tabPage3_Enter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void bunifuLabel5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string strSearch = tbSearch.Text;
+
+            if (IsAName(strSearch))
+            {
+                LoadStudentGrid("%", "%" + strSearch + "%", "%");
+            }
+            else if (IsANumber(strSearch))
+            {
+                if(strSearch.Length < 7)
+                    LoadStudentGrid("%" + strSearch + "%", "%", "%");
+                else
+                    LoadStudentGrid("%", "%", "%" + strSearch + "%");
+            }
+            else if(strSearch == "")
+            {
+                LoadStudentGrid("%", "%", "%");
+            }
+            else
+            {
+                LoadStudentGrid(strSearch, strSearch, strSearch);
+            }
+        }
+        private bool IsAName(string yourString)
+        {
+            if (yourString == "")
+                return false;
+            else
+                return yourString.All(ch => char.IsLetter(ch) || ch == ' ');
+        }
+
+        private bool IsANumber(string yourString)
+        {
+            if (yourString == "")
+                return false;
+            else
+                return yourString.All(ch => char.IsNumber(ch));
+        }
+
+        private void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            btnSearch_Click(sender, e);
+        }
+
+        private void logoSideMenu_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

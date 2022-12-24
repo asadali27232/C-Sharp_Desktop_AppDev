@@ -247,6 +247,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Student.cs" />
     <Compile Include="StudentDetail.cs">
       <SubType>Form</SubType>
     </Compile>

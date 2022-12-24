@@ -131,6 +131,14 @@
         hkGl674Ae4gzaz1AeAkAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="minimize.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAABGdBTUEAALGPC/xhBQAAAH5JREFUaEPt
+        1LENgDAMRNHMgCdD9GGyhNGgImwBKVwhFxYNRvwnXXu66hIAAAAAAAD+ZC7DlKtsPWewrLnIqDP95iqH
+        URYji+w6088sChSd6WeVRIrO9LNKIkVn+lklkaIz/UKfQpWmM/30ttut6P30h3t02wAAAAAAAPislC5K
+        co4c/sGcuQAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="logoTitlebar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAArhJREFUaEPt
@@ -151,8 +159,11 @@
   <data name="titleTitlebar.BaseStylesheet" xml:space="preserve">
     <value>#bunifu-label { padding: 0px; margin: auto; padding-top: 7px;font-family: 'Segoe UI'; font-size: 9.75pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: rgb(255, 255, 255); text-align: center; }</value>
   </data>
+  <data name="lblRegNum.BaseStylesheet" xml:space="preserve">
+    <value>#bunifu-label { padding: 0px; margin: auto; padding-top: 4px;font-family: 'Segoe UI'; font-size: 12pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: rgb(0, 0, 0); text-align: center; }</value>
+  </data>
   <data name="bunifuLabel1.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 0px; margin: auto; padding-top: 4px;font-family: 'Segoe UI'; font-size: 9.75pt; width: 100%; height: 100%; font-style: normal; font-weight: normal; text-decoration: none; color: rgb(105, 105, 105); text-align: center; }</value>
+    <value>#bunifu-label { padding: 0px; margin: auto; padding-top: 4px;font-family: 'Segoe UI'; font-size: 9.75pt; width: 100%; height: 100%; font-style: italic; font-weight: normal; text-decoration: none; color: rgb(105, 105, 105); text-align: center; }</value>
   </data>
   <data name="bunifuLabel25.BaseStylesheet" xml:space="preserve">
     <value>#bunifu-label { padding: 0px; margin: auto; padding-top: 6px;font-family: 'Segoe UI Semibold'; font-size: 9.75pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: rgb(105, 105, 105); text-align: center; }</value>
