@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -19,10 +14,12 @@ namespace WindowsFormsApp1
             pages.SetPage("Login");
             todayDateSideMenu.Value = DateTime.Now;
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadStudentGrid("%", "%", "%");
+            ddClassList.SelectedIndex = 0;
+            ddClassList_SelectedIndexChanged(sender, e);
+            ddAtendanceClass_SelectedIndexChanged(sender, e);
         }
         private void TotatStudentsCount()
         {
@@ -255,7 +252,6 @@ namespace WindowsFormsApp1
                 lblLoginWelcome.Visible = true;
 
                 btnHome.Enabled = true;
-                btnDashboard.Enabled = true;
                 btnStudents.Enabled = true;
                 btnAttendance.Enabled = true;
                 btnClasses.Enabled = true;
@@ -284,7 +280,6 @@ namespace WindowsFormsApp1
             lblLoginWelcome.Visible = false;
 
             btnHome.Enabled = false;
-            btnDashboard.Enabled = false;
             btnStudents.Enabled = false;
             btnAttendance.Enabled = false;
             btnClasses.Enabled = false;
@@ -327,12 +322,12 @@ namespace WindowsFormsApp1
 
         private void tbPassword_KeyDown(object sender, EventArgs e)
         {
-        
+
         }
 
         private void todayDateSideMenu_ValueChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -367,7 +362,7 @@ namespace WindowsFormsApp1
 
         private void titleBar_DoubleClick(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -377,7 +372,7 @@ namespace WindowsFormsApp1
 
         private void tabPage3_Enter(object sender, EventArgs e)
         {
-            
+
         }
 
         private void bunifuLabel5_Click(object sender, EventArgs e)
@@ -395,12 +390,12 @@ namespace WindowsFormsApp1
             }
             else if (IsANumber(strSearch))
             {
-                if(strSearch.Length < 7)
+                if (strSearch.Length < 7)
                     LoadStudentGrid("%" + strSearch + "%", "%", "%");
                 else
                     LoadStudentGrid("%", "%", "%" + strSearch + "%");
             }
-            else if(strSearch == "")
+            else if (strSearch == "")
             {
                 LoadStudentGrid("%", "%", "%");
             }
@@ -433,6 +428,178 @@ namespace WindowsFormsApp1
         private void logoSideMenu_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void bunifuLabel18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuLabel19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuButton1_Click_3(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoadClassGrid(string sID, string sName, string sCNIC, int classID)
+        {
+            string conStr = "Data Source=DESKTOP-CG5S6II\\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conStr))
+                {
+                    using (SqlCommand cmd = new SqlCommand($"SELECT * FROM db_project.dbo.udf_get_class_grid('{sID}', '{sName}', '{sCNIC}', {classID})", con))
+                    {
+                        cmd.CommandType = CommandType.Text;
+
+                        con.Open();
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        dt.Load(reader);
+                        con.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error box = new Error(ex.Message);
+                box.Show();
+            }
+            classGrid.DataSource = dt;
+            classGridCount.Text = dt.Rows.Count.ToString();
+        }
+
+        private void classGridSearch()
+        {
+            string strSearch = tbClassSearch.Text;
+            int classID = ddClassList.SelectedIndex - 1;
+
+            if (IsAName(strSearch))
+            {
+                LoadClassGrid("%", "%" + strSearch + "%", "%", classID);
+            }
+            else if (IsANumber(strSearch))
+            {
+                if (strSearch.Length < 7)
+                    LoadClassGrid("%" + strSearch + "%", "%", "%", classID);
+                else
+                    LoadClassGrid("%", "%", "%" + strSearch + "%", classID);
+            }
+            else if (strSearch == "")
+            {
+                LoadClassGrid("%", "%", "%", classID);
+            }
+            else
+            {
+                LoadClassGrid(strSearch, strSearch, strSearch, classID);
+            }
+        }
+
+        private void tbClassSearch_TextChanged(object sender, EventArgs e)
+        {
+            classGridSearch();
+        }
+
+        private void ddClassList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            classGridSearch();
+            if (ddClassList.SelectedIndex == 0)
+                lblClassTag.Text = "PG";
+            else if (ddClassList.SelectedIndex == 1)
+                lblClassTag.Text = "N";
+            else
+                lblClassTag.Text = (ddClassList.SelectedIndex - 1).ToString();
+        }
+        private void LoadAttendanceGrid(int classID)
+        {
+            string conStr = "Data Source=DESKTOP-CG5S6II\\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conStr))
+                {
+                    using (SqlCommand cmd = new SqlCommand($"SELECT * FROM db_project.dbo.udf_get_attendance_grid({classID})", con))
+                    {
+                        cmd.CommandType = CommandType.Text;
+
+                        con.Open();
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        dt.Load(reader);
+                        con.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error box = new Error(ex.Message);
+                box.Show();
+            }
+            dgvAttendace.DataSource = dt;
+        }
+        private void ddAtendanceClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddAttendanceClass.SelectedIndex == -1)
+                lblAtdClass.Text = "";
+            else if (ddAttendanceClass.SelectedIndex == 0)
+                lblAtdClass.Text = "PG";
+            else if (ddAttendanceClass.SelectedIndex == 1)
+                lblAtdClass.Text = "N";
+            else
+                lblAtdClass.Text = (ddAttendanceClass.SelectedIndex - 1).ToString();
+
+            int classID = ddAttendanceClass.SelectedIndex - 1;
+            //MessageBox.Show(attendanceDate.Value.ToString());
+            LoadAttendanceGrid(classID);
+        }
+        private void attendanceDate_ValueChanged(object sender, EventArgs e)
+        {
+            ddAtendanceClass_SelectedIndexChanged(sender, e);
+        }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            string conStr = "Data Source=DESKTOP-CG5S6II\\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conStr))
+                {
+                    string query = "db_project.dbo.sp_submit_attendance";
+
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@enrollmentID", dgvAttendace.Rows[0].Cells[1].Value);
+                        cmd.Parameters.AddWithValue("@attendanceDate", attendanceDate.Value);
+                        cmd.Parameters.AddWithValue("@attendanceStatus", "P");
+
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+
+                        SuccessBox box = new SuccessBox("Attendance Submitted Successfully!");
+                        box.Show();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Error errorBox = new Error(ex.Message);
+                errorBox.Show();
+            }
+        }
+
+        private void dgvAttendace_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }
